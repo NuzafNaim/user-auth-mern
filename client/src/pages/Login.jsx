@@ -6,15 +6,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const BASE_URL = "http://localhost:4000/api/";
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  const fetchUsers = () => {
-    axios.get(BASE_URL + "users/users").then();
-  };
+  const BASE_URL = "https://outrageous-goat-sari.cyclic.app/api/";
 
   const handleLogIn = async (e) => {
     e.preventDefault();
@@ -27,7 +19,6 @@ const Login = () => {
       alert("You are Logged In");
       setEmail("");
       setPassword("");
-      fetchUsers();
       navigate("/account");
       window.location.reload();
       localStorage.setItem("token", token);

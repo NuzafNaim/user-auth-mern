@@ -31,7 +31,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    status: "Success",
+    status: "API Server Working Totally Fine",
   });
 });
 

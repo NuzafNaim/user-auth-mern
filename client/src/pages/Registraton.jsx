@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -8,19 +8,10 @@ const Registraton = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-  const fetchUsers = () => {
-    axios.get("http://localhost:4000/api/users/users").then((res) => {
-      console.log(res.data);
-    });
-  };
-
   const handleReg = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/api/users/register", {
+      .post("https://outrageous-goat-sari.cyclic.app/api/users/register", {
         name,
         email,
         password,
@@ -30,7 +21,6 @@ const Registraton = () => {
         setName("");
         setEmail("");
         setPassword("");
-        fetchUsers();
         navigate("/login");
       })
       .catch((error) => {
